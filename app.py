@@ -6,8 +6,8 @@ global save
 
 global lastTime
 lastTime=time.time()
-save=pogG()
-print(save)
+#save=pogG()
+#print(save)
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
