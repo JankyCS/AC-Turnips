@@ -1,13 +1,11 @@
-from AC_turnip_prices import pogG
+from AC_turnip_prices import getListings
 import flask
 from flask import request, jsonify
 import time
 global save
-
 global lastTime
 lastTime=time.time()
-save=pogG()
-#print(save)
+save=getListings()
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
@@ -17,10 +15,8 @@ def home():
     global save
     global lastTime
     if time.time()-lastTime>600:
-        save=pogG(save)
+        save=getListings(save)
         lastTime=time.time()
-    else:
-        print("time since last refresh:"+str(time.time()-lastTime))
     return jsonify(save)  
 
 if __name__ == '__main__':
