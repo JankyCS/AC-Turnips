@@ -44,10 +44,10 @@ def methodName(link,listings,headers):
     cleanPost=words.text.strip('•comentsharvidport 1234567890')
     FC=swRegex.findall(cleanPost)
 
-    print("here")
+    #print("here")
     if checkActivity(link,headers):
         
-        print('awesome')
+        #print('awesome')
         if len(FC)>0:
             FC=FC[0]
            # print('Friend Code is SW-'+FC)
@@ -69,7 +69,8 @@ def methodName(link,listings,headers):
                     }
         listings.append(curListing)
     else:
-        print("failed check")
+        pass
+        #print("failed check")
     
 
 
@@ -82,22 +83,22 @@ def pogG(old=[]):
     headers = {'User-Agent': 'Mozilla/5.0'}
     tListings = []
     prev=[]
-   
-    pageHtml=getPage(url,headers)
-    elems = pageHtml.find_all("a", class_="title may-blank")
-    
-    url=pageHtml.find("span",class_="next-button").find("a" , recursive=False)['href'] 
+    for i in range(2):
+        pageHtml=getPage(url,headers)
+        elems = pageHtml.find_all("a", class_="title may-blank")
+        
+        url=pageHtml.find("span",class_="next-button").find("a" , recursive=False)['href'] 
 
-    for j in range(len(elems)):
-        link="https://old.reddit.com"+elems[j]['href']
-        print(link)
-        if alreadyHas(old,link):
-            print("Bouta break")
-            break
-        try:
-            methodName(link,tListings,headers)
-        except:
-            pass
+        for j in range(len(elems)):
+            link="https://old.reddit.com"+elems[j]['href']
+           # print(link)
+            if alreadyHas(old,link):
+               # print("Bouta break")
+                break
+            try:
+                methodName(link,tListings,headers)
+            except:
+                pass
     for i in range(len(old)):
         if checkActivity(old[i]['url'],headers):
             prev.append(old[i])
