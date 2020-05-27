@@ -4,6 +4,7 @@ from flask import request, jsonify
 import time
 global save
 
+global lastTime
 lastTime=time.time()
 save=pogG()
 print(save)
