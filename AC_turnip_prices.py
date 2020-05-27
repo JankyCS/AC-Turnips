@@ -50,7 +50,7 @@ def methodName(link,listings,headers):
         #print('awesome')
         if len(FC)>0:
             FC=FC[0]
-           # print('Friend Code is SW-'+FC)
+            print('Friend Code is SW-'+FC)
             
             cleanPost=cleanPost.replace(FC,'')
             price=priceRegex.findall(cleanPost)
@@ -58,10 +58,10 @@ def methodName(link,listings,headers):
             FC=''
         if len(price)>0:
             price=price[0]
-           # print('Price is '+price+' Bells')
+            print('Price is '+price+' Bells')
         else:
             price=''
-           # print('I dont know the price lol')
+            print('I dont know the price lol')
         curListing = {
                         "price" : price,
                         "FC" : "SW-"+FC,
@@ -91,9 +91,9 @@ def pogG(old=[]):
 
         for j in range(len(elems)):
             link="https://old.reddit.com"+elems[j]['href']
-           # print(link)
+            #print(link)
             if alreadyHas(old,link):
-               # print("Bouta break")
+                print("Bouta break")
                 break
             try:
                 methodName(link,tListings,headers)
