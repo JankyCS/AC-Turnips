@@ -6,7 +6,7 @@ global save
 
 global lastTime
 lastTime=time.time()
-#save=pogG()
+save=pogG()
 #print(save)
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
@@ -14,7 +14,15 @@ app.config["DEBUG"] = True
 @app.route('/', methods=['GET'])
 
 def home():
-   return '<h1>pog</h1>'
+    global save
+    global lastTime
+    if time.time()-lastTime>600:
+        save=pogG(save) 
+        lastTime=time.time()
+    else:
+        pass
+        #print("time since last refresh:"+str(time.time()-lastTime))
+    return jsonify(save)  
 
 if __name__ == '__main__':
     app.run()
