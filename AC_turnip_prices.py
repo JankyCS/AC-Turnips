@@ -92,3 +92,5 @@ def getListings(old=[]):
     tListings=tListings+prev
     print (tListings)
     return tListings
+
+getListings()
