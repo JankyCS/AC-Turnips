@@ -14,13 +14,6 @@ app.config["DEBUG"] = True
 @app.route('/', methods=['GET'])
 
 def home():
-    global save
-    global lastTime
-    if time.time()-lastTime>600:
-        save=pogG(save) 
-        lastTime=time.time()
-    else:
-        print("time since last refresh:"+str(time.time()-lastTime))
-    return jsonify(save)  
+   return 'pog'
 
 app.run()
