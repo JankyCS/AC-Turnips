@@ -16,7 +16,7 @@ app.config["DEBUG"] = True
 def home():
     global save
     global lastTime
-    if time.time()-lastTime>100:
+    if time.time()-lastTime>600:
         save=pogG(save)
         lastTime=time.time()
     else:
