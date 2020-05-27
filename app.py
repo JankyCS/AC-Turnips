@@ -14,6 +14,6 @@ app.config["DEBUG"] = True
 @app.route('/', methods=['GET'])
 
 def home():
-   return 'pog'
+   return '<h1>pog</h1>'
 
 app.run()
