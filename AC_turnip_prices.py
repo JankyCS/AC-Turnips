@@ -83,7 +83,7 @@ def pogG(old=[]):
     headers = {'User-Agent': 'Mozilla/5.0'}
     tListings = []
     prev=[]
-    for i in range(2):
+    for i in range(1):
         pageHtml=getPage(url,headers)
         elems = pageHtml.find_all("a", class_="title may-blank")
         
@@ -102,7 +102,7 @@ def pogG(old=[]):
     for i in range(len(old)):
         if checkActivity(old[i]['url'],headers):
             prev.append(old[i])
-        #print (tListings)
+    print (tListings)
     
     tListings=tListings+prev
     return tListings
