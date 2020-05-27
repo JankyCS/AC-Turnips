@@ -16,4 +16,5 @@ app.config["DEBUG"] = True
 def home():
    return '<h1>pog</h1>'
 
-app.run()
+if __name__ == '__main__':
+    app.run()
